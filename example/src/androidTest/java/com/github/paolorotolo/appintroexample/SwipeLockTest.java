@@ -134,14 +134,14 @@ public class SwipeLockTest {
     }
 
     private void oneShotSwipeLock() {
-        checkButtonVisibility(btnNextResId, Visibility.INVISIBLE);
+        checkButtonVisibility(btnNextResId, Visibility.VISIBLE);
 
-        // test swiping is locked and buttons are hidden
-        checkButtonVisibilityOnPageSwipeLeft(viewPagerResId, btnNextResId, Visibility.INVISIBLE);
+        // test swiping is locked and buttons are shown
+        checkButtonVisibilityOnPageSwipeLeft(viewPagerResId, btnNextResId, Visibility.VISIBLE);
         onView(withText("Slide 2 title")).check(matches(isDisplayed()));
-        checkButtonVisibilityOnPageSwipeRight(viewPagerResId, btnNextResId, Visibility.INVISIBLE);
+        checkButtonVisibilityOnPageSwipeRight(viewPagerResId, btnNextResId, Visibility.VISIBLE);
         onView(withText("Slide 2 title")).check(matches(isDisplayed()));
-        checkButtonVisibility(btnNextResId, Visibility.INVISIBLE);
+        checkButtonVisibility(btnNextResId, Visibility.VISIBLE);
 
         // test swiping is unlocked and buttons are shown
         onView(allOf(withId(R.id.button_disable_swipe), isDisplayed())).perform(click());
